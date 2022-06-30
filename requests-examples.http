@@ -1,0 +1,73 @@
+# примеры API-запросов
+
+@baseUrl = http://127.0.0.1:5000
+
+# создать пользователя
+POST {{baseUrl}}/users/
+Content-Type: application/json
+
+{
+  "name": "Bike",
+  "email": "Bike@test.test", 
+  "password": "test"
+}
+
+###
+
+# получить пользователя
+GET {{baseUrl}}/user/5/
+Content-Type: application/json
+
+
+###
+
+# удалить пользователя
+DELETE {{baseUrl}}/user/1/
+Content-Type: application/json
+
+###
+# получение объявлений
+GET {{baseUrl}}/advert/4/
+Content-Type: application/json
+
+###
+
+# удалить объявление
+DELETE  {{baseUrl}}/advert/2/
+Content-Type: application/json
+
+###
+
+
+# создание объявления
+POST {{baseUrl}}/adverts/
+Content-Type: application/json
+
+{
+  "title": "Холодильник Bosh",
+  "description": "Очень хороший",
+  "user_id": 2
+}
+
+###
+
+# попытка поменять объявление
+PATCH {{baseUrl}}/advertisements/1/
+Content-Type: application/json
+Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+
+{
+  "status": "CLOSED"
+}
+
+###
+
+# фильтрация по создателю
+GET {{baseUrl}}/advertisements/?creator=3
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_before=2020-10-01
+Content-Type: application/json
